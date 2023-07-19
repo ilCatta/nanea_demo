@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +35,7 @@ class SlashPageTemplate extends StatelessWidget {
   }
 
   Widget _immagine() => Padding(
-        padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
+        padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
         child: Image.asset(
           imageUrl,
           height: 270,
@@ -50,6 +52,7 @@ class SlashPageTemplate extends StatelessWidget {
               fontSize: 30,
               fontWeight: FontWeight.bold,
               letterSpacing: 1,
+              color: Colors.white,
             ),
           ),
         ),
@@ -68,6 +71,7 @@ class SlashPageTemplate extends StatelessWidget {
               fontSize: 14,
               fontWeight: FontWeight.w500,
               letterSpacing: 1,
+              color: Colors.white,
             ),
           ),
         ),

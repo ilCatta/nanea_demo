@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nanea_demo/pages/splash/splash_page_view_4.dart';
-import 'package:nanea_demo/pages/splash/splash_page_view_5.dart';
+import 'package:nanea_demo/pages/splash/splash_page_toggle_color.dart';
+import 'package:nanea_demo/pages/splash/splash_page_login.dart';
 import 'package:nanea_demo/pages/splash/widget/slash_page_template.dart';
+import 'package:nanea_demo/theme/theme.dart';
 import 'package:nanea_demo/widgets/logo_nanea.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -48,37 +49,49 @@ class _SplashPageState extends State<SplashPage> {
           height: double.infinity,
           child: Column(
             children: [
-              LogoNanea(invertiColori: false),
               Expanded(
-                child: PageView(
-                  controller: _controller,
-                  onPageChanged: (value) {
-                    setState(() {
-                      currentIndex = value;
-                    });
-                  },
+                child: Stack(
                   children: [
-                    SlashPageTemplate(
-                      imageUrl: "assets/images/image-1.png",
-                      title: "Consegna",
-                      description: "Fai il tuo ordine online e fattelo consegnare...",
-                      onTap: nextPage,
+                    PageView(
+                      controller: _controller,
+                      onPageChanged: (value) {
+                        setState(() {
+                          currentIndex = value;
+                        });
+                      },
+                      children: [
+                        SlashPageTemplate(
+                          imageUrl: "assets/images/image-1.png",
+                          title: "Consegna",
+                          description: "Fai il tuo ordine online e fattelo consegnare...",
+                          onTap: nextPage,
+                        ),
+                        SlashPageTemplate(
+                          imageUrl: "assets/images/image-2.png",
+                          title: "Take Away",
+                          description: "...oppure ordina nell'app e poi ritiralo tu stesso...",
+                          onTap: nextPage,
+                        ),
+                        SlashPageTemplate(
+                          imageUrl: "assets/images/image-3.png",
+                          title: "Sul posto",
+                          description:
+                              "...puoi trovare i nostri codidi QR diretamente sui tavoli dei locali che usano nanea. Basta eseguire la scansione del codice QR e fare il tuo ordine per riceverlo!",
+                          onTap: nextPage,
+                        ),
+                        SlashPageToggleColor(
+                          onTap: nextPage,
+                          isLight: context.isLight,
+                        ),
+                        SlashPageLogin(),
+                      ],
                     ),
-                    SlashPageTemplate(
-                      imageUrl: "assets/images/image-2.png",
-                      title: "Take Away",
-                      description: "...oppure ordina nell'app e poi ritiralo tu stesso...",
-                      onTap: nextPage,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        LogoNanea(invertiColori: currentIndex != 3 ? false : true),
+                      ],
                     ),
-                    SlashPageTemplate(
-                      imageUrl: "assets/images/image-3.png",
-                      title: "Sul posto",
-                      description:
-                          "...puoi trovare i nostri codidi QR diretamente sui tavoli dei locali che usano nanea. Basta eseguire la scansione del codice QR e fare il tuo ordine per riceverlo!",
-                      onTap: nextPage,
-                    ),
-                    SlashPageView4(),
-                    SlashPageView5(),
                   ],
                 ),
               ),
@@ -108,6 +121,7 @@ class _SplashPageState extends State<SplashPage> {
                     style: TextStyle(
                       fontSize: 14,
                       decoration: TextDecoration.underline,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -144,7 +158,12 @@ class _SplashPageState extends State<SplashPage> {
                       color: Colors.grey.shade100.withOpacity(0.3),
                     ),
                   ),
-                  child: Text("Continuare"),
+                  child: Text(
+                    "Continuare",
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ),
