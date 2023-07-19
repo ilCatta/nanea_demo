@@ -1,7 +1,7 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:nanea_demo/pages/splash_page.dart';
+import 'package:nanea_demo/pages/splash/splash_page.dart';
 import 'package:nanea_demo/theme/theme.dart';
 
 class App extends StatelessWidget {
