@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nanea_demo/pages/splash/splash_page_toggle_color.dart';
 import 'package:nanea_demo/pages/splash/splash_page_login.dart';
-import 'package:nanea_demo/pages/splash/widget/slash_page_template.dart';
+import 'package:nanea_demo/pages/splash/slash_page_template.dart';
 import 'package:nanea_demo/theme/theme.dart';
 import 'package:nanea_demo/widgets/logo_nanea.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
