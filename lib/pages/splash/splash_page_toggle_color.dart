@@ -39,11 +39,7 @@ class _SlashPageToggleColorState extends State<SlashPageToggleColor> {
               height: (MediaQuery.of(context).size.height) / 2,
               color: context.isLight ? Colors.white : Colors.black,
               child: Center(
-                child: Image.asset(
-                  context.isLight ? "assets/images/card-1.png" : "assets/images/card-2.png",
-                  height: 320,
-                  width: 320,
-                ),
+                child: _cardExample(),
               ),
             ),
             _toggleThemeColor(),
@@ -54,6 +50,46 @@ class _SlashPageToggleColorState extends State<SlashPageToggleColor> {
       ),
     );
   }
+
+  Widget _cardExample() => Stack(
+        children: [
+          Container(
+            margin: EdgeInsets.fromLTRB(30, 0, 30, 0),
+            width: double.infinity,
+            height: 150,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(14),
+              color: Colors.grey,
+            ),
+            child: Column(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(14),
+                    topRight: Radius.circular(14),
+                  ),
+                  child: Image.asset(
+                    "assets/images/bg-card.png",
+                    height: 70,
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned.fill(
+            top: -30,
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: CircleAvatar(
+                backgroundColor: Colors.red,
+                radius: 24,
+              ),
+            ),
+          ),
+        ],
+      );
 
   Widget _toggleThemeColor() => Padding(
         padding: EdgeInsets.fromLTRB(0, 12, 0, 0),
