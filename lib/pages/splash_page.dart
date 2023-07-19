@@ -27,7 +27,7 @@ class _SplashPageState extends State<SplashPage> {
           height: double.infinity,
           child: Column(
             children: [
-              LogoNanea(),
+              LogoNanea(invertiColori: false),
               Expanded(
                 child: PageView(
                   controller: _controller,
@@ -41,7 +41,22 @@ class _SplashPageState extends State<SplashPage> {
                       height: 100,
                       width: 100,
                       color: Colors.green,
-                    )
+                    ),
+                    Container(
+                      height: 100,
+                      width: 100,
+                      color: Colors.blue,
+                    ),
+                    Container(
+                      height: 100,
+                      width: 100,
+                      color: Colors.purple,
+                    ),
+                    Container(
+                      height: 100,
+                      width: 100,
+                      color: Colors.pink,
+                    ),
                   ],
                 ),
               ),
@@ -55,7 +70,7 @@ class _SplashPageState extends State<SplashPage> {
 
   Widget _menuBottom() => Container(
         width: double.infinity,
-        padding: EdgeInsets.fromLTRB(30, 6, 30, 12),
+        padding: EdgeInsets.fromLTRB(50, 6, 30, 4),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -68,7 +83,7 @@ class _SplashPageState extends State<SplashPage> {
             ),
             SmoothPageIndicator(
               controller: _controller,
-              count: 2,
+              count: 5,
               effect: ColorTransitionEffect(
                 activeDotColor: Colors.grey.shade600.withOpacity(0.7),
                 dotColor: Colors.white,
@@ -77,7 +92,18 @@ class _SplashPageState extends State<SplashPage> {
                 dotWidth: 10,
               ),
             ),
-            Container(),
+            Container(
+              padding: EdgeInsets.fromLTRB(8, 6, 8, 6),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(4),
+                border: Border.all(
+                  width: 1,
+                  color: Colors.grey.shade100.withOpacity(0.3),
+                ),
+              ),
+              child: Text("Continuare"),
+            ),
           ],
         ),
       );
