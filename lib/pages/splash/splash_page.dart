@@ -21,7 +21,7 @@ class _SplashPageState extends State<SplashPage> {
     if (currentIndex != 4) {
       setState(() {
         currentIndex++;
-        _controller.animateToPage(currentIndex, duration: Duration(milliseconds: 200), curve: Curves.linear);
+        _controller.animateToPage(currentIndex, duration: Duration(milliseconds: 300), curve: Curves.linear);
       });
     }
   }
