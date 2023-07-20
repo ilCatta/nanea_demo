@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SlashPageLogin extends StatelessWidget {
   @override
@@ -14,11 +15,13 @@ class SlashPageLogin extends StatelessWidget {
         _containerLogin(
           text: "Accedi con Google",
           bgColor: Colors.black,
+          icon: FontAwesomeIcons.google,
         ),
         SizedBox(height: 20),
         _containerLogin(
           text: "Accedi con Apple",
           bgColor: Colors.white,
+          icon: FontAwesomeIcons.apple,
         ),
         SizedBox(height: 30),
         Text(
@@ -69,6 +72,7 @@ class SlashPageLogin extends StatelessWidget {
   Widget _containerLogin({
     required String text,
     required Color bgColor,
+    required IconData icon,
   }) {
     return Container(
       margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
@@ -76,12 +80,23 @@ class SlashPageLogin extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(color: bgColor, borderRadius: BorderRadius.circular(16)),
       child: Center(
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 16,
-            color: bgColor == Colors.black ? Colors.white : Colors.black,
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              color: bgColor == Colors.black ? Colors.white : Colors.black,
+              size: 20,
+            ),
+            SizedBox(width: 6),
+            Text(
+              text,
+              style: TextStyle(
+                fontSize: 16,
+                color: bgColor == Colors.black ? Colors.white : Colors.black,
+              ),
+            ),
+          ],
         ),
       ),
     );
