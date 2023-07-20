@@ -5,6 +5,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nanea_demo/theme/theme.dart';
+import 'package:nanea_demo/widgets/logo_nanea.dart';
 
 class SlashPageToggleColor extends StatefulWidget {
   void Function() onTap;
@@ -34,13 +35,18 @@ class _SlashPageToggleColorState extends State<SlashPageToggleColor> {
         height: double.infinity,
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              height: (MediaQuery.of(context).size.height) / 2,
-              color: context.isLight ? Colors.white : Colors.black,
-              child: Center(
-                child: _cardExample(),
-              ),
+            Stack(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: (MediaQuery.of(context).size.height) / 2,
+                  //padding: EdgeInsets.fromLTRB(0, 40, 0, 0),
+                  color: context.isLight ? Colors.white : Colors.black,
+                  child: Center(
+                    child: SizedBox(height: 190, child: _cardExample()),
+                  ),
+                ),
+              ],
             ),
             _toggleThemeColor(),
             _titolo(),
@@ -54,12 +60,12 @@ class _SlashPageToggleColorState extends State<SlashPageToggleColor> {
   Widget _cardExample() => Stack(
         children: [
           Container(
-            margin: EdgeInsets.fromLTRB(30, 0, 30, 0),
+            margin: EdgeInsets.fromLTRB(30, 30, 30, 0),
             width: double.infinity,
             height: 150,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
-              color: Colors.grey,
+              color: context.isLight ? Colors.grey.shade300 : Colors.grey.shade700,
             ),
             child: Column(
               children: [
@@ -79,12 +85,19 @@ class _SlashPageToggleColorState extends State<SlashPageToggleColor> {
             ),
           ),
           Positioned.fill(
-            top: -30,
+            top: 10,
             child: Align(
               alignment: Alignment.topCenter,
               child: CircleAvatar(
-                backgroundColor: Colors.red,
-                radius: 24,
+                radius: 23,
+                backgroundColor: Colors.grey.shade300,
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  radius: 22,
+                  child: Center(
+                    child: Image.asset("assets/images/logo-no-bg.png"),
+                  ),
+                ),
               ),
             ),
           ),
