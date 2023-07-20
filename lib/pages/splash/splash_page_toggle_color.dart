@@ -2,10 +2,11 @@
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:nanea_demo/theme/theme.dart';
-import 'package:nanea_demo/widgets/logo_nanea.dart';
 
 class SlashPageToggleColor extends StatefulWidget {
   void Function() onTap;
@@ -62,7 +63,7 @@ class _SlashPageToggleColorState extends State<SlashPageToggleColor> {
           Container(
             margin: EdgeInsets.fromLTRB(30, 30, 30, 0),
             width: double.infinity,
-            height: 150,
+            height: 160,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
               color: context.isLight ? Colors.grey.shade300 : Colors.grey.shade700,
@@ -81,6 +82,7 @@ class _SlashPageToggleColorState extends State<SlashPageToggleColor> {
                     fit: BoxFit.cover,
                   ),
                 ),
+                _contenutoCard(),
               ],
             ),
           ),
@@ -98,6 +100,83 @@ class _SlashPageToggleColorState extends State<SlashPageToggleColor> {
                     child: Image.asset("assets/images/logo-no-bg.png"),
                   ),
                 ),
+              ),
+            ),
+          ),
+        ],
+      );
+
+  Widget _contenutoCard() => Container(
+        padding: EdgeInsets.fromLTRB(8, 8, 8, 8),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Nanea Restaurant",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                _contenutoCardIcon(EvaIcons.menu2),
+              ],
+            ),
+            SizedBox(height: 2),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Burger | Pasta | Pizza",
+                  style: TextStyle(
+                    fontSize: 11,
+                    fontWeight: FontWeight.w300,
+                  ),
+                ),
+                _contenutoCardIcon(EvaIcons.shoppingBag),
+              ],
+            ),
+            SizedBox(height: 2),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CircleAvatar(
+                  backgroundColor: Color(0xffF2B70D),
+                  radius: 9,
+                  child: Center(
+                    child: Text(
+                      "i",
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: context.isLight ? Colors.white : Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                _contenutoCardIcon(FontAwesomeIcons.utensils),
+              ],
+            ),
+          ],
+        ),
+      );
+
+  Widget _contenutoCardIcon(IconData icon) => Stack(
+        children: [
+          Icon(
+            icon,
+            size: 22,
+            color: context.isLight ? Colors.grey.shade600 : Colors.white,
+          ),
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Container(
+              width: 9,
+              height: 9,
+              decoration: BoxDecoration(
+                color: Colors.green.shade300,
+                shape: BoxShape.circle,
               ),
             ),
           ),
